@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     getShop()
     getItems()
+    createSushi()
 })
 
 
@@ -41,8 +42,15 @@ function getItems(){
 
 
 
+// create items 
+const createform = document.querySelector("#item-post-form")
 
 
+function createSushi(){
+    createform.addEventListener("submit", function(e){
+        e.preventDefault()
+    })
+}
 
 
 

@@ -15,9 +15,14 @@ class Item {
     renderItems(){
         return (`<img src= " ${this.image} " />
         <h3>${this.title}</h3>
-        <h2>$ ${this.price}</h2>`)
+        <h4>$${this.price}</h4>`)
+
+
+        
+
     }
 
 
 
+    
 }
