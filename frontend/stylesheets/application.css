@@ -1,8 +1,17 @@
 
+.container {
+  max-width: 1600;
+    padding: 50px 20px;
+    margin: 0 auto;
 
+}
 
 #image-container {
-    width: 1000px;
-    margin: auto;
-    margin-top: 50px;
-  }
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}

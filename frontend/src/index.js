@@ -62,7 +62,10 @@ function renderItem(item){
     const h4 = document.createElement("h4")
     h4.innerHTML = `$ ${item.price}`
 
-    image.append(img, h3, h4)
+    const addBtn = document.createElement("button")
+    addBtn.innerHTML = "add to cart"
+
+    image.append(img, h3, h4, addBtn)
 }
 
 
