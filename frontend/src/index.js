@@ -43,7 +43,7 @@ function getItems(){
     .then(res => res.json())
     .then(data => (
         data[0].items.forEach(item => renderItem(item)))
-    .catch(error => console.warn(error))
+    .catch(error => console.error(error))
         
     )}
 
@@ -89,7 +89,7 @@ function addCreateform(){
         <input id="submit" class="createbutton" type="submit" >`
         formContainer.append(createForm)
 
-        createForm.addEventListener("submit", handleCreateItemSubmit)
+        // createForm.addEventListener("submit", postItems)
 }
 
 
