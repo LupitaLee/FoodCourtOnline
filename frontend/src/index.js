@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getItems()
     
     postItems()
+    addCreateform()
 })
 
 
@@ -72,7 +73,26 @@ function renderItem(item){
 
 
 //---------- create form ---------
-const createForm = document.querySelector("#item-post-form")
+
+const formContainer = document.querySelector("#item-post-form")
+const createForm = document.createElement("form")
+
+
+function addCreateform(){
+    
+    createForm.innerHTML = `<p>Create your Own</p>
+        <input id="title-input" type="text" placeholder="Name your roll"></input>
+        <input id="image-input" type="text" placeholder="Image URL"></input>
+        
+        <label for="price">$10.50 </label>
+    
+        <input id="submit" class="createbutton" type="submit" >`
+        formContainer.append(createForm)
+
+        createForm.addEventListener("submit", handleCreateItemSubmit)
+}
+
+
 
 
 
@@ -91,6 +111,7 @@ function postItems(){
             const form = e.target
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
+           
             //--------
      
             // take this values and sent to db to create a new roll
@@ -118,6 +139,9 @@ function postItems(){
               .catch((error) => {
                 console.error('Error:', error)
               })
+
+              titleInput.value = ""
+              imageInput.value = ""
         })
 }
      
