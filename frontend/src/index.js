@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-   getShop()
+//    getShop()
     getItems()
     
     postItems()
@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function getShop(){
-    fetch("http://localhost:3000/api/shops")
-    .then(res => res.json())
-    .then(data => renderShop(data))
-    .catch(error => console.warn(error))
-}
+// function getShop(){
+//     fetch("http://localhost:3000/api/shops")
+//     .then(res => res.json())
+//     .then(data => renderShop(data))
+//     .catch(error => console.warn(error))
+// }
 
 function renderShop(data){
    
