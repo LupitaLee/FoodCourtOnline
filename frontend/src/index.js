@@ -65,7 +65,7 @@ function renderItem(item){
     const addBtn = document.createElement("button")
     addBtn.innerHTML = "add to cart"
 
-    image.append(img, h3, h4, addBtn)
+    image.append(img,addBtn, h3,h4)
 }
 
 
