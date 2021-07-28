@@ -1,8 +1,12 @@
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-//    getShop()
+  Shop.getShops()
     getItems()
     
-    postItems()
+    // postItems()
+    eventItems()
     addCreateform()
 })
 
@@ -12,25 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// function getShop(){
-//     fetch("http://localhost:3000/api/shops")
-//     .then(res => res.json())
-//     .then(data => renderShop(data))
-//     .catch(error => console.warn(error))
-// }
-
-function renderShop(data){
-   
-    const titleName = document.querySelector("#name")
-    data.forEach(shopName => {
-        
-    
-    const h1 = document.createElement("h1")
-   
-    h1.innerHTML =  shopName.name
-    titleName.append(h1)
-    }); 
-    }
 
 
 
@@ -84,7 +69,7 @@ function addCreateform(){
         <input id="title-input" type="text" placeholder="Name your roll"></input>
         <input id="image-input" type="text" placeholder="Image URL"></input>
         
-        <label for="price">$10.50 </label>
+        <label for="price"> $10.50 </label>
     
         <input id="submit" class="createbutton" type="submit" >`
         formContainer.append(createForm)
@@ -99,11 +84,8 @@ function addCreateform(){
 //------------------------post items and render -------
 
 
-//---------   -----------------
 
-
-
-function postItems(){
+function eventItems(){
         // this should be its own function
         createForm.addEventListener("submit", function(e){
           
@@ -111,11 +93,17 @@ function postItems(){
             const form = e.target
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
-           
+            postItems(titleInput, imageInput)
+        })
             //--------
      
             // take this values and sent to db to create a new roll
-            fetch("http://localhost:3000/api/shops/1/items", {
+            
+}
+
+     
+function postItems(titleInput, imageInput){
+    fetch("http://localhost:3000/api/shops/1/items", {
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",// we sennding it thru as jason to our back end
@@ -142,7 +130,4 @@ function postItems(){
 
               titleInput.value = ""
               imageInput.value = ""
-        })
-}
-     
-    
+        }
