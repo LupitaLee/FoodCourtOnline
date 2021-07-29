@@ -19,8 +19,8 @@ class Item {
             data[0].items.forEach(item => {
           
              
-                const itemContainer = new Item(item)
-                itemContainer.addToDom()
+                const itemInfo = new Item(item)
+                itemInfo.addToDom()
           
             })
         .catch(error => console.warn(error))
@@ -28,7 +28,7 @@ class Item {
     }
     
 
-   addToDom(){
+    addToDom(){
        
     //    image.innerHTML += this.renderItems()
 
@@ -139,7 +139,7 @@ class Item {
             const form = e.target
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
-             postItems(titleInput, imageInput)
+              Item.postItems(titleInput, imageInput)
            
         })
 
@@ -150,6 +150,7 @@ class Item {
 
      
   static postItems(titleInput, imageInput){
+     
     fetch("http://localhost:3000/api/shops/1/items", {
                 method:"POST",
                 headers: {
@@ -164,20 +165,23 @@ class Item {
                 })
             })
             .then(resp => resp.json())// this is the only time we get an implicit return in js written on one line arrow
-            .then(item => {
-                // console.log('Success:', item)
+            .then(data => {
+                console.log('Success:', data)
               
-             
-                // // renderItem(item)
-                addToDom(item)
+            //   debugger
 
-              })
+              const newItem = new Item(data)
+              newItem.addToDom()
+              titleInput.value = ""
+              imageInput.value = ""
+
+            })
+            
               .catch((error) => {
                 console.error('Error:', error)
               })
 
-              titleInput.value = ""
-              imageInput.value = ""
+             
      }
 
 
