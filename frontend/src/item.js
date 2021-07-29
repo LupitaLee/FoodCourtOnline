@@ -30,7 +30,7 @@ class Item {
 
     addToDom(){
        
-    //    image.innerHTML += this.renderItems()
+    
 
     const img = document.createElement("img")
     img.src = this.image
@@ -47,66 +47,12 @@ class Item {
 
     image.append(img,addBtn, h3,h4)
    }
- 
-//    renderItems(){
-//        return (`<img src= " ${this.image} " />
-//        <h3>${this.title}</h3>
-//        <h4>$${this.price}</h4>`
-//        )}
 
 
 
 
 
 
-
-
-
-
-
-    // ------ new code fetch and render items -----
-
-
-// static getItems(){
-//     fetch("http://localhost:3000/api/shops")
-//     .then(res => res.json())
-//     .then(data => (
-//         data[0].items.forEach(item => 
-//             new Item(item))
-//         )
-//     .then(data => renderItem(Item.all)))
-//     .catch(error => console.error(error))
-        
-//     }
-
-
-
-
-
-//   static renderItem(item){
-//     const img = document.createElement("img")
-//     img.src = item.image
-    
-
-//     const h3 = document.createElement("h3")
-//     h3.innerHTML = item.title
-
-//     const h4 = document.createElement("h4")
-//     h4.innerHTML = `$ ${item.price}`
-
-//     const addBtn = document.createElement("button")
-//     addBtn.innerHTML = "add to cart"
-
-//     image.append(img,addBtn, h3,h4)
-// }
-
-
-
-
-// //---------- create form ---------
-
-// // const formContainer = document.querySelector("#item-post-form")
-// // const createForm = document.createElement("form")
 
 
   static addCreateform(){
@@ -120,16 +66,14 @@ class Item {
         <input id="submit" class="createbutton" type="submit" >`
         formContainer.append(createForm)
 
-        // createForm.addEventListener("submit", postItems)
+       
 }
 
 
 
 
 
-// //------------------------post items and render -------
-
-
+//event listener
 
    static eventItems(){
         
@@ -144,7 +88,7 @@ class Item {
         })
 
      
-//             // take this values and sent to db to create a new roll
+ // take this values and sent to db to create a new roll
             
 }
 
