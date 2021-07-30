@@ -1,5 +1,6 @@
 class Item {
-    constructor({image,title,price}){
+    constructor({id, image,title,price}){
+        this.id = id
         this.image = image
         this.title = title
         this.price = price
@@ -13,10 +14,10 @@ class Item {
 
 
     static getItems(){
-        fetch("http://localhost:3000/api/shops")
+        fetch(`http://localhost:3000/api/shops/${this.id}/items`)
         .then(res => res.json())
         .then(data => {
-            data[0].items.forEach(item => {
+            data.forEach(item => {
           
              
                 const itemInfo = new Item(item)
@@ -25,13 +26,14 @@ class Item {
             })
         .catch(error => console.warn(error))
         })
+  
     }
     
 
+
+
     addToDom(){
        
-    
-
     const img = document.createElement("img")
     img.src = this.image
     
@@ -94,7 +96,7 @@ class Item {
 
      
   static postItems(titleInput, imageInput){
-     
+     // need to add `${this.id /items/${id}}
     fetch("http://localhost:3000/api/shops/1/items", {
                 method:"POST",
                 headers: {
@@ -102,7 +104,7 @@ class Item {
                     "Accept": "application/json" // we accepting json back from our backend
                 },
                 body: JSON.stringify({
-                 
+                    
                    image: imageInput.value,
                     title:titleInput.value,
                     price: "10.50" // need to see if how im going to add a flat fee with out using user input
