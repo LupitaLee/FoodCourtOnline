@@ -1,17 +1,22 @@
 
-.container {
-  max-width: 1600;
+ .container {
+  display: grid;
+  flex-flow: row wrap;
+  justify-items: center;
+  /* max-width: 1600;
     padding: 50px 20px;
-    margin: 0 auto;
+    margin: 0 auto; */
 
-}
+} 
 
 #image-container {
   
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* display: flex; */
+    /* flex-flow: row-wrap; */
+    /* grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     width: 100%;
     height: auto;
-    vertical-align: middle;
-}
+    vertical-align: middle; */
+} 
+
