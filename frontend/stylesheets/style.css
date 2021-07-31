@@ -1,22 +1,46 @@
 
- .container {
-  display: grid;
-  flex-flow: row wrap;
-  justify-items: center;
-  /* max-width: 1600;
-    padding: 50px 20px;
-    margin: 0 auto; */
-
-} 
-
-#image-container {
+ /* title */
+ #name{
+   color: black;
+   background-color: red;
+ 
+ }
+ 
+ /* form */
+ 
+ #container {
+ 
+  padding: 50px ;
   
-    /* display: flex; */
-    /* flex-flow: row-wrap; */
-    /* grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    width: 100%;
-    height: auto;
-    vertical-align: middle; */
-} 
+  
+ }
+
+
+/* items */
+
+.inner-container {
+  border: 1px #ccc solid;
+ 
+  display: inline-grid;
+  
+  background: aliceblue;
+  
+}
+
+
+/* add button */
+
+#addbtn{
+
+  background-color: red;
+    
+}
+
+
+#submit{
+  background-color: lightskyblue
+
+}
+
+
 

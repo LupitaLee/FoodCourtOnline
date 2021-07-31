@@ -32,21 +32,38 @@ class Item {
 
 
     addToDom(){
-       
-    const img = document.createElement("img")
-    img.src = this.image
+   
+        image.innerHTML += this.render()
+    // const div = document.createElement("div")
+    // div.innerHTML = image
+
+    // const img = document.createElement("img")
+    // img.src = this.image
     
 
-    const h3 = document.createElement("h3")
-    h3.innerHTML = this.title
+    // const h3 = document.createElement("h3")
+    // h3.innerHTML = this.title
 
-    const h4 = document.createElement("h4")
-    h4.innerHTML = `$ ${this.price}`
+    // const h4 = document.createElement("h4")
+    // h4.innerHTML = `$ ${this.price}`
 
-    const addBtn = document.createElement("button")
-    addBtn.innerHTML = "add to cart"
+    // const addBtn = document.createElement("button")
+    // addBtn.innerHTML = "add to cart"
 
-    image.append(img,addBtn, h3,h4)
+    
+   }
+
+   render(){
+        return (`
+        <div class="inner-container">
+       
+                <img src= " ${this.image} " />
+                <h3>${this.title}</h3> 
+                <h4> $${this.price}</h4> 
+
+                <button id="addbtn">Add to Cart</button>
+            
+        </div>`)
    }
 
 
