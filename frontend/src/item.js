@@ -26,6 +26,7 @@ class Item {
         })
         .catch(error => console.warn(error))
   
+  
     }
     
 
@@ -34,22 +35,7 @@ class Item {
     addToDom(){
    
         image.innerHTML += this.render()
-    // const div = document.createElement("div")
-    // div.innerHTML = image
-
-    // const img = document.createElement("img")
-    // img.src = this.image
     
-
-    // const h3 = document.createElement("h3")
-    // h3.innerHTML = this.title
-
-    // const h4 = document.createElement("h4")
-    // h4.innerHTML = `$ ${this.price}`
-
-    // const addBtn = document.createElement("button")
-    // addBtn.innerHTML = "add to cart"
-
     
    }
 
@@ -66,6 +52,29 @@ class Item {
         </div>`)
    }
 
+// searchBar 
+
+
+
+   static search(){
+    searchBar.addEventListener('keyup', (e) => {
+
+        const searchString = e.target.value.toLowerCase()   
+        const filteredCharacters = Item.all.filter((character) => { 
+        
+             return character.title.toLowerCase().includes(searchString) 
+         
+        })   
+        filteredCharacters.forEach( filterChar => {
+            filterChar.addToDom()
+        })
+
+        
+           
+     }  ) 
+         
+
+    }
 
 
 
@@ -76,10 +85,7 @@ class Item {
   static addCreateform(){
     
     createForm.innerHTML = `<p>Create your Own</p>
-    <select name="item" id="shop_id" >
-    <option value="1" id=1> Sushiyo </option>
-    <option value="2" id=1> Vegetable </option>
-    </select>
+   
         <input id="title-input" type="text" placeholder="Name your roll"></input>
         <input id="image-input" type="text" placeholder="Image URL"></input>
         
@@ -103,10 +109,9 @@ class Item {
           
             e.preventDefault()
             const form = e.target
-            const shopid= form.querySelector("#shop_id")
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
-              Item.postItems(shopid,titleInput, imageInput)
+              Item.postItems(titleInput, imageInput)
            
         })
 
@@ -116,22 +121,25 @@ class Item {
 }
 
      
-  static postItems(shopid,titleInput, imageInput){
+  static postItems(titleInput, imageInput){
      // need to add `${this.id /items/${id}}
-     console.log(shopid.value)
-    fetch(`http://localhost:3000/api/shops/${shop_id.value}/items`, {
+     
+    fetch(`http://localhost:3000/api/shops/1/items`, {
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",// we sennding it thru as jason to our back end
                     "Accept": "application/json" // we accepting json back from our backend
                 },
                 body: JSON.stringify({
-                    shop_id: shopid.value,
+                  
                    image: imageInput.value,
                     title:titleInput.value,
-                    price: "10.50" // need to see if how im going to add a flat fee with out using user input
+                    price: "10.50" 
                 })
             })
+
+
+            
             .then(resp => resp.json())// this is the only time we get an implicit return in js written on one line arrow
             .then(data => {
                 console.log('Success:', data)
@@ -153,7 +161,8 @@ class Item {
      }
 
 
+     
 
-
+ 
 
 }
