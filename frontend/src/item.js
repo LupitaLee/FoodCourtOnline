@@ -48,6 +48,7 @@ class Item {
                 <h4> $${this.price}</h4> 
 
                 <button id="addbtn">Add to Cart</button>
+                <button id="deletebtn">Delete</button>
             
         </div>`)
    }
@@ -61,26 +62,36 @@ class Item {
 
         const searchString = e.target.value.toLowerCase()   
         const filteredCharacters = Item.all.filter((character) => { 
+     
         
              return character.title.toLowerCase().includes(searchString) 
          
         })   
         filteredCharacters.forEach( filterChar => {
-            filterChar.addToDom()
-        })
-
-        
-           
-     }  ) 
          
+            if (image){
+                image.innerHTML = "" 
+            }
+          
+            filterChar.addToDom()
 
+           
+            
+        })
+        
+        if (searchString == ""){
+            this.getItems()
+        }
+
+        }) 
+    
     }
 
 
 
 
 
-
+// form
 
   static addCreateform(){
     
@@ -127,7 +138,7 @@ class Item {
     fetch(`http://localhost:3000/api/shops/1/items`, {
                 method:"POST",
                 headers: {
-                    "Content-Type": "application/json",// we sennding it thru as jason to our back end
+                    "Content-Type": "application/json", // we sennding it thru as jason to our back end
                     "Accept": "application/json" // we accepting json back from our backend
                 },
                 body: JSON.stringify({
@@ -141,7 +152,7 @@ class Item {
 
             
             .then(resp => resp.json())// this is the only time we get an implicit return in js written on one line arrow
-            .then(data => {
+            .then(data => { 
                 console.log('Success:', data)
               
             //   debugger

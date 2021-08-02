@@ -11,7 +11,7 @@ class Shop {
     static getShops(){
         fetch("http://localhost:3000/api/shops")
         .then(res => res.json())
-        .then(data => {
+        .then(data => { 
         data.forEach(name => {
             const shopName = new Shop(name)
             shopName.addToDom()
