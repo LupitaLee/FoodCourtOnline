@@ -1,13 +1,8 @@
 
-const image = document.querySelector("#image-container")
+const imageContainer = document.querySelector("#image-container")
 
 const formContainer = document.querySelector("#item-post-form")
 const createForm = document.createElement("form")
-
-const btn = document.querySelectorAll("#addbtn")
-
-
-// searchBar
 
 const searchBar = document.querySelector('#searchBar')
 
@@ -20,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     Item.eventItems()
 
     Item.search()
+
+  
    
     
     

@@ -27,10 +27,7 @@ class Shop {
     addToDom(){
         const titleName = document.querySelector("#name")
         titleName.innerHTML += this.render()
-        // const h1 = document.createElement("h1")
-    
-        // h1.innerHTML =  this.name
-        // titleName.append(h1)
+       
     }
     
     render(){

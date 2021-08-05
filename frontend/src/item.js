@@ -1,13 +1,15 @@
 class Item {
-    constructor({id, image,title,price}){
-        this.id = id
-        this.image = image
+
+
+    constructor({ id,image,title,price}){
+       
+        this.image = image //
         this.title = title
         this.price = price
         Item.all.push(this)
     }
     static all = []
-
+   
 
 
 
@@ -33,13 +35,15 @@ class Item {
 
 
     addToDom(){
+        
    
-        image.innerHTML += this.render()
+        imageContainer.innerHTML += this.render() 
     
     
    }
 
    render(){
+      
         return (`
         <div class="inner-container">
        
@@ -52,9 +56,6 @@ class Item {
             
         </div>`)
    }
-
- // <button id="deletebtn">Delete</button>
-
 
 
 // searchBar 
@@ -73,8 +74,8 @@ class Item {
         })   
         filteredItems.forEach( filterItem => {
          
-            if (image){
-                image.innerHTML = "" 
+            if (imageContainer){
+                imageContainer.innerHTML = "" 
             }
           
             filterItem.addToDom()
@@ -142,24 +143,22 @@ class Item {
     fetch(`http://localhost:3000/api/shops/1/items`, {
                 method:"POST",
                 headers: {
-                    "Content-Type": "application/json", // we sennding it thru as jason to our back end
-                    "Accept": "application/json" // we accepting json back from our backend
+                    "Content-Type": "application/json",
+                    "Accept": "application/json" 
                 },
                 body: JSON.stringify({
                   
                    image: imageInput.value,
                     title:titleInput.value,
-                    price: "10.50" 
+                    price: "10.50"
                 })
             })
 
 
             
-            .then(resp => resp.json())// this is the only time we get an implicit return in js written on one line arrow
+            .then(resp => resp.json())
             .then(data => { 
                 console.log('Success:', data)
-              
-            //   debugger
 
               const newItem = new Item(data)
               newItem.addToDom()
@@ -174,6 +173,12 @@ class Item {
 
              
      }
+
+
+
+
+
+
 
 
      
