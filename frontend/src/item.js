@@ -48,10 +48,14 @@ class Item {
                 <h4> $${this.price}</h4> 
 
                 <button id="addbtn">Add to Cart</button>
-                <button id="deletebtn">Delete</button>
+                
             
         </div>`)
    }
+
+ // <button id="deletebtn">Delete</button>
+
+
 
 // searchBar 
 
@@ -61,19 +65,19 @@ class Item {
     searchBar.addEventListener('keyup', (e) => {
 
         const searchString = e.target.value.toLowerCase()   
-        const filteredCharacters = Item.all.filter((character) => { 
+        const filteredItems = Item.all.filter((item) => { 
      
         
-             return character.title.toLowerCase().includes(searchString) 
+             return item.title.toLowerCase().includes(searchString) 
          
         })   
-        filteredCharacters.forEach( filterChar => {
+        filteredItems.forEach( filterItem => {
          
             if (image){
                 image.innerHTML = "" 
             }
           
-            filterChar.addToDom()
+            filterItem.addToDom()
 
            
             
@@ -133,7 +137,7 @@ class Item {
 
      
   static postItems(titleInput, imageInput){
-     // need to add `${this.id /items/${id}}
+     
      
     fetch(`http://localhost:3000/api/shops/1/items`, {
                 method:"POST",
