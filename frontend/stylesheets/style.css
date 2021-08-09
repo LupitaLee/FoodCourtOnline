@@ -58,19 +58,19 @@
 
 /* add button */
 
-#addbtn{
+/* #addbtn{
 
   background-color: rgb(0, 238, 255);
     
-}
+} */
 
 /* delete button */
 
-#deletebtn{
+/* #deletebtn{
 
   background-color: rgb(241, 13, 13);
     
-}
+} */
 
 
 #submit{
@@ -102,5 +102,11 @@ serachBar */
   right: 30px;
 }
 
+
+/* darkmode */
+
+body.dark{
+  background-color: grey;
+}
 
 

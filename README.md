@@ -37,7 +37,10 @@ $ open index.html
 ```
 
 ## Sample Demo Video
-To look at a sample demo video click here
+To look at a sample demo video click the link :
+https://drive.google.com/file/d/1V-M2jRIB-TT5mKIp3li_itgbATVZ9qKJ/view?usp=sharing
+
+![caption](link to image / GIF)
 
 ## Contributing
 

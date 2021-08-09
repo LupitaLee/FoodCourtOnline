@@ -35,17 +35,14 @@ class Shop {
         <div class="name-container">
        
               
-                <h1>${this.name}</h1> 
-              
-
-                
+                <h1>${this.name}</h1>    
             
         </div>`)
    }
 
 
 
-
+   
 
 
 

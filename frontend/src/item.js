@@ -1,9 +1,9 @@
 class Item {
 
 
-    constructor({ id,image,title,price}){
-       
-        this.image = image //
+    constructor({image,title,price}){
+     
+        this.image = image 
         this.title = title
         this.price = price
         Item.all.push(this)
@@ -51,11 +51,9 @@ class Item {
                 <h3>${this.title}</h3> 
                 <h4> $${this.price}</h4> 
 
-                <button id="addbtn">Add to Cart</button>
-                
-            
         </div>`)
    }
+//    
 
 
 // searchBar 
@@ -102,8 +100,8 @@ class Item {
     
     createForm.innerHTML = `<p>Create your Own</p>
    
-        <input id="title-input" type="text" placeholder="Name your roll"></input>
-        <input id="image-input" type="text" placeholder="Image URL"></input>
+        <input id="title-input" type="text" placeholder="Name your roll" required></input>
+        <input id="image-input" type="text" placeholder="Image URL" required>></input>
         
         <label for="price"> $10.50 </label>
     
@@ -121,7 +119,7 @@ class Item {
 
    static eventItems(){
         
-        createForm.addEventListener("submit", function(e){
+        createForm.addEventListener("submit", (e)=>{
           
             e.preventDefault()
             const form = e.target
@@ -163,25 +161,19 @@ class Item {
               const newItem = new Item(data)
               newItem.addToDom()
               titleInput.value = ""
-              imageInput.value = ""
-
-            })
+              imageInput.value = "" })
             
               .catch((error) => {
                 console.error('Error:', error)
               })
 
              
-     }
-
-
-
-
-
+    }
 
 
 
      
+
 
  
 

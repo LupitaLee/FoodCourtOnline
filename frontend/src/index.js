@@ -8,6 +8,9 @@ const searchBar = document.querySelector('#searchBar')
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   Shop.getShops()
   Item.getItems()
@@ -15,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Item.eventItems()
 
     Item.search()
-
-  
    
     
     
