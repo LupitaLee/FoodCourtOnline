@@ -40,8 +40,6 @@ $ open index.html
 To look at a sample demo video click the link :
 https://drive.google.com/file/d/1V-M2jRIB-TT5mKIp3li_itgbATVZ9qKJ/view?usp=sharing
 
-![caption](link to image / GIF)
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/LupitaLee/sushiyo_front_end. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/LupitaLee/sushiyo_front_end/blob/master/CODE_OF_CONDUCT.md).
