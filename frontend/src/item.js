@@ -1,11 +1,11 @@
 class Item {
 
 
-    constructor({image,title,price}){
-     
+    constructor({id,image,title,price}){
+        this.id = id 
         this.image = image 
         this.title = title
-        this.price = price
+        this.price= price
         Item.all.push(this)
     }
     static all = []
@@ -49,7 +49,8 @@ class Item {
        
                 <img src= " ${this.image} " />
                 <h3>${this.title}</h3> 
-                <h4> $${this.price}</h4> 
+                <h4> $${this.price}</h4>
+                <button data-id=${this.id} id="delete">Delete</button> 
 
         </div>`)
    }
@@ -134,10 +135,8 @@ class Item {
             
 }
 
-     
   static postItems(titleInput, imageInput){
-     
-     
+   
     fetch(`http://localhost:3000/api/shops/1/items`, {
                 method:"POST",
                 headers: {
@@ -163,12 +162,55 @@ class Item {
               titleInput.value = ""
               imageInput.value = "" })
             
-              .catch((error) => {
-                console.error('Error:', error)
-              })
+              .catch(error => console.warn(error))
 
              
     }
+
+
+
+
+    static listenDelete(){
+      
+
+        imageContainer.addEventListener("click", (e) =>{
+        e.preventDefault()
+        Item.handleDelete(e)
+        })
+    }
+
+
+
+
+    static handleDelete(e){
+        const itemId = e.target.dataset.id
+
+        console.log(e.target.dataset.id)
+
+       const parent = e.target.parentNode
+
+       console.log(parent)
+
+       if (e.target.id  === "delete"){
+           fetch(`http://localhost:3000/api/shops/1/items/${itemId}`, {
+               method: "DELETE"
+           })
+           .then(res => res.json())
+           .then(data => {
+
+      
+               if (data.message){
+                console.log(data.message)
+                parent.remove()
+               }
+               
+               })
+            
+           .catch(error => console.warn(error))
+       }
+      
+    }
+    
 
 
 
