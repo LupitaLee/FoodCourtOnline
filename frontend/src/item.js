@@ -46,7 +46,7 @@ class Item {
       
         return (`
         <div class="inner-container">
-       
+        
                 <img src= " ${this.image} " />
                 <h3>${this.title}</h3> 
                 <h4> $${this.price}</h4>
@@ -100,6 +100,12 @@ class Item {
   static addCreateform(){
     
     createForm.innerHTML = `<p>Create your Own</p>
+
+    <select>
+        <option>Sushiyo</option>
+        <option>Salad Bowls</option>
+        <option>Drink Stop </option>
+      </select>
    
         <input id="title-input" type="text" placeholder="Name your roll" required></input>
         <input id="image-input" type="text" placeholder="Image URL" required>></input>

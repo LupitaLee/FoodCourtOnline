@@ -1,5 +1,6 @@
 class Shop {
-    constructor({name}){
+    constructor({id,name}){
+        this.id = id
         this.name = name 
         Shop.all.push(this)
 
@@ -32,17 +33,17 @@ class Shop {
     
     render(){
         return (`
-        <div class="name-container">
+        <div id="shop-${this.id}" data-id=${this.id} class="name-container">
        
               
                 <h1>${this.name}</h1>    
-            
+              
         </div>`)
    }
 
+// {/* <button data-id=${this.id} id="select">Select</button> 
 
-
-   
+//     */}
 
 
 
