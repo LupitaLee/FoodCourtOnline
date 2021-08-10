@@ -1,11 +1,12 @@
 class Item {
 
 
-    constructor({id,image,title,price}){
+    constructor({id,image,title,price,shop_id}){
         this.id = id 
         this.image = image 
         this.title = title
         this.price= price
+        this.shop_id = shop_id
         Item.all.push(this)
     }
     static all = []
