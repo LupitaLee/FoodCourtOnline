@@ -6,8 +6,8 @@ const createForm = document.createElement("form")
 
 const searchBar = document.querySelector('#searchBar')
 
-
-
+// shop-container
+const titleName = document.querySelector("#name")
 
 
 
@@ -16,6 +16,10 @@ const searchBar = document.querySelector('#searchBar')
 
 document.addEventListener('DOMContentLoaded', () => {
   Shop.getShops()
+  Shop.listenDysplay()
+
+
+
   Item.getItems()
   Item.addCreateform()
     Item.eventItems()

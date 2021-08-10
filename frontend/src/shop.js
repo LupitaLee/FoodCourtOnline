@@ -1,7 +1,8 @@
 class Shop {
-    constructor({id,name}){
+    constructor({id,name, items}){
         this.id = id
         this.name = name 
+        this.items = items.map(i => new Item(i))
         Shop.all.push(this)
 
     }
@@ -33,17 +34,78 @@ class Shop {
     
     render(){
         return (`
-        <div id="shop-${this.id}" data-id=${this.id} class="name-container">
+        <div class="name-container">
        
               
-                <h1>${this.name}</h1>    
+                <h1>${this.name}</h1>
+                <button id="shop-${this.id}" data-id=${this.id} data-action="display">Display Items </button>  
               
         </div>`)
    }
 
-// {/* <button data-id=${this.id} id="select">Select</button> 
 
-//     */}
+static listenDysplay(){
+    titleName.addEventListener("click", (e)=>{
+        e.preventDefault()
+        Shop.handleDysplay(e)
+    })
+
+    }
+
+
+static handleDysplay(e){
+   
+    const shopAction = e.target.dataset.action
+ 
+    const shopId = e.target.dataset.id
+    
+  if(shopAction === "display")
+  console.log ("display items", shopId)
+  const s = Shop.all.find(s => s.id == e.target.dataset.id )
+  console.log(s)
+
+
+
+// renderItems(){
+//     this.items.forEach(i => console.log(i.render()))
+// }
+
+}
+
+
+
+
+// static search(){
+//     searchBar.addEventListener('keyup', (e) => {
+
+//         const searchString = e.target.value.toLowerCase()   
+//         const filteredItems = Item.all.filter((item) => { 
+     
+        
+//              return item.title.toLowerCase().includes(searchString) 
+         
+//         })   
+//         filteredItems.forEach( filterItem => {
+         
+//             if (imageContainer){
+//                 imageContainer.innerHTML = "" 
+//             }
+          
+//             filterItem.addToDom()
+
+           
+            
+//         })
+        
+//         if (searchString == ""){
+//             this.getItems()
+//         }
+
+//         }) 
+    
+//     }
+      
+
 
 
 
