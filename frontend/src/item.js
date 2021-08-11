@@ -16,29 +16,29 @@ class Item {
 
 
 
-    static getItems(){
-        fetch("http://localhost:3000/api/shops/1/items")
-        .then(res => res.json())
-        .then(data => {
+    // static getItems(){
+    //     fetch("http://localhost:3000/api/shops/1/items")
+    //     .then(res => res.json())
+    //     .then(data => {
             
-            data.forEach(item => {
-                const itemInfo = new Item(item)
+    //         data.forEach(item => {
+    //             const itemInfo = new Item(item)
                 
-                itemInfo.addToDom()
-            })
-        })
-        .catch(error => console.warn(error))
+    //             itemInfo.addToDom()
+    //         })
+    //     })
+    //     .catch(error => console.warn(error))
   
   
-    }
+    // }
     
 
 
 
     addToDom(){
-        
-   
         imageContainer.innerHTML += this.render() 
+   
+        // imageContainer.innerHTML += this.render() 
     
     
    }
@@ -59,8 +59,6 @@ class Item {
 
 
 // searchBar 
-
-
 
    static search(){
     searchBar.addEventListener('keyup', (e) => {
@@ -85,7 +83,8 @@ class Item {
         })
         
         if (searchString == ""){
-            this.getItems()
+            // this.getItems()
+            Shop.handleDysplay(e)
         }
 
         }) 
@@ -103,7 +102,7 @@ class Item {
     createForm.innerHTML = `<p>Create your Own</p>
 
     <select>
-        <option>Sushiyo</option>
+        <option data-id=${this.id} data-action="Sushiyo">Sushiyo</option>
         <option>Salad Bowls</option>
         <option>Drink Stop </option>
       </select>
@@ -133,7 +132,7 @@ class Item {
             const form = e.target
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
-              Item.postItems(titleInput, imageInput)
+              Item.postItems(titleInput, imageInput,e)
            
         })
 
@@ -142,16 +141,17 @@ class Item {
             
 }
 
-  static postItems(titleInput, imageInput){
+  static postItems(titleInput, imageInput,e){
    
-    fetch(`http://localhost:3000/api/shops/1/items`, {
+   const shop_id = e.target.dataset.id
+    fetch(`http://localhost:3000/api/shops/${shop_id}/items`, {
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json" 
                 },
                 body: JSON.stringify({
-                  
+                  shop_id: shop_id,
                    image: imageInput.value,
                     title:titleInput.value,
                     price: "10.50"
@@ -191,6 +191,7 @@ class Item {
 
     static handleDelete(e){
         const itemId = e.target.dataset.id
+        console.log(itemId)
 
         console.log(e.target.dataset.id)
 

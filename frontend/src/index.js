@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  Item.getItems()
+//   Item.getItems()
   Item.addCreateform()
     Item.eventItems()
 

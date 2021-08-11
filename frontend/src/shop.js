@@ -8,6 +8,8 @@ class Shop {
     }
     static all = []
 
+   
+
   
 
     static getShops(){
@@ -38,39 +40,58 @@ class Shop {
        
               
                 <h1>${this.name}</h1>
-                <button id="shop-${this.id}" data-id=${this.id} data-action="display">Display Items </button>  
+                <button data-id=${this.id} data-action="display">Display Items </button>  
               
         </div>`)
    }
 
 
-static listenDysplay(){
-    titleName.addEventListener("click", (e)=>{
-        e.preventDefault()
-        Shop.handleDysplay(e)
-    })
+    static listenDysplay(){
+        titleName.addEventListener("click", (e)=>{
+            e.preventDefault()
+            Shop.handleDysplay(e)
+        })
+
+        }
+
+
+    static handleDysplay(e){
+    
+    
+        const shopAction = e.target.dataset.action
+    
+        const shopId = e.target.dataset.id
+        
+    if(shopAction === "display")
+    console.log ("display items", shopId)
+    const s = Shop.all.find(s => s.id == e.target.dataset.id )
+    console.log(s)
+    
+  
+    
+    if (imageContainer){
+        imageContainer.innerHTML = ""
+        }
+
+    s.renderItems()
+      
 
     }
 
 
-static handleDysplay(e){
-   
-    const shopAction = e.target.dataset.action
- 
-    const shopId = e.target.dataset.id
+renderItems(){
+    this.items.forEach(i => console.log(i.addToDom()))
     
-  if(shopAction === "display")
-  console.log ("display items", shopId)
-  const s = Shop.all.find(s => s.id == e.target.dataset.id )
-  console.log(s)
-
-
-
-// renderItems(){
-//     this.items.forEach(i => console.log(i.render()))
-// }
-
 }
+
+
+
+
+
+
+
+
+
 
 
 
