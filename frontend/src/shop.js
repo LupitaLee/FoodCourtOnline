@@ -49,13 +49,13 @@ class Shop {
     static listenDysplay(){
         titleName.addEventListener("click", (e)=>{
             e.preventDefault()
-            Shop.handleDysplay(e)
+            Shop.handleDisplay(e)
         })
 
         }
 
 
-    static handleDysplay(e){
+    static handleDisplay(e){
     
     
         const shopAction = e.target.dataset.action

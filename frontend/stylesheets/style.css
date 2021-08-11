@@ -2,6 +2,10 @@
  /* title */
  #name{
    color: black;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  flex: 1 1 auto;
    /* background-color: rgb(212, 13, 13); */
  
  }
