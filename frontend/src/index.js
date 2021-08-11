@@ -13,7 +13,6 @@ const titleName = document.querySelector("#name")
 
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   Shop.getShops()
   Shop.listenDysplay()

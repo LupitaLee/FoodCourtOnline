@@ -51,11 +51,12 @@ class Item {
                 <img src= " ${this.image} " />
                 <h3>${this.title}</h3> 
                 <h4> $${this.price}</h4>
-                <button data-id=${this.id} id="delete">Delete</button> 
+                <button id=${this.shop_id} data-id=${this.id} data-action="delete">Delete</button> 
 
         </div>`)
    }
 //    
+
 
 
 // searchBar 
@@ -101,10 +102,10 @@ class Item {
     
     createForm.innerHTML = `<p>Create your Own</p>
 
-    <select>
-        <option data-id=${this.id} data-action="Sushiyo">Sushiyo</option>
-        <option>Salad Bowls</option>
-        <option>Drink Stop </option>
+    <select name"items" id="selectbox">
+        <option data-id="1">Sushiyo</option>
+        <option data-id="2">Salad Bowls</option>
+        <option data-id="3">Drink Stop </option>
       </select>
    
         <input id="title-input" type="text" placeholder="Name your roll" required></input>
@@ -132,7 +133,10 @@ class Item {
             const form = e.target
             const titleInput = form.querySelector("#title-input")
             const imageInput = form.querySelector("#image-input")
-              Item.postItems(titleInput, imageInput,e)
+            const select = form.querySelector("#selectbox")
+           console.log(select)
+           
+              Item.postItems(titleInput, imageInput, select)
            
         })
 
@@ -141,20 +145,23 @@ class Item {
             
 }
 
-  static postItems(titleInput, imageInput,e){
+  static postItems(titleInput, imageInput, select){
+    const shopId = select.options[select.selectedIndex].attributes[0].value
+    console.log(shopId)
    
-   const shop_id = e.target.dataset.id
-    fetch(`http://localhost:3000/api/shops/${shop_id}/items`, {
+    fetch(`http://localhost:3000/api/shops/${shopId}/items`, {
+      
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json" 
                 },
                 body: JSON.stringify({
-                  shop_id: shop_id,
+                 shop_id: shopId,
                    image: imageInput.value,
                     title:titleInput.value,
                     price: "10.50"
+                    
                 })
             })
 
@@ -191,16 +198,13 @@ class Item {
 
     static handleDelete(e){
         const itemId = e.target.dataset.id
-        console.log(itemId)
-
-        console.log(e.target.dataset.id)
 
        const parent = e.target.parentNode
 
-       console.log(parent)
-
-       if (e.target.id  === "delete"){
-           fetch(`http://localhost:3000/api/shops/1/items/${itemId}`, {
+       const shopId = e.target.id
+    
+       if (e.target.dataset.action === "delete"){
+           fetch(`http://localhost:3000/api/shops/${shopId}/items/${itemId}`, {
                method: "DELETE"
            })
            .then(res => res.json())

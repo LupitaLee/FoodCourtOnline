@@ -57,83 +57,32 @@ class Shop {
 
     static handleDisplay(e){
     
-    
-        const shopAction = e.target.dataset.action
-    
-        const shopId = e.target.dataset.id
         
-    if(shopAction === "display")
-    console.log ("display items", shopId)
-    const s = Shop.all.find(s => s.id == e.target.dataset.id )
-    console.log(s)
-    
-  
-    
-    if (imageContainer){
-        imageContainer.innerHTML = ""
+        const shopAction = e.target.dataset.action
+        
+        const shopId = e.target.dataset.id
+            
+        if(shopAction === "display"){
+            
+            const s = Shop.all.find(s => s.id == shopId)
+
+                if (imageContainer){
+                    imageContainer.innerHTML = ""
+                    }
+
+            s.renderItems()
+        
+
         }
-
-    s.renderItems()
-      
-
     }
 
 
-renderItems(){
-    this.items.forEach(i => console.log(i.addToDom()))
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// static search(){
-//     searchBar.addEventListener('keyup', (e) => {
-
-//         const searchString = e.target.value.toLowerCase()   
-//         const filteredItems = Item.all.filter((item) => { 
-     
+    renderItems(){
+        this.items.forEach(i => console.log(i.addToDom()))
         
-//              return item.title.toLowerCase().includes(searchString) 
-         
-//         })   
-//         filteredItems.forEach( filterItem => {
-         
-//             if (imageContainer){
-//                 imageContainer.innerHTML = "" 
-//             }
-          
-//             filterItem.addToDom()
-
-           
-            
-//         })
-        
-//         if (searchString == ""){
-//             this.getItems()
-//         }
-
-//         }) 
-    
-//     }
-      
+    }
 
 
-
-
-
-
-
-     
 }
 
 
