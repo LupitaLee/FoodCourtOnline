@@ -1,7 +1,7 @@
-# sushiyo_front_end
+# Food Court Online
 
-Sushiyo is an educational single page web application made with rails as the backend Api and utilizing JavaScript as the frontend.
-In this app, You will be able to see the items of a shop and create new items and in the search bar you can find a specific sushi roll by their name.  
+Food Court Online is an educational single page web application made with rails as the backend Api and utilizing JavaScript as the frontend.
+In this app, You will be able to see the items of a shop and create new items and in the search bar you can find a specific items by their name.  
 
 ## Installation
 
