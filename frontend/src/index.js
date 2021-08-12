@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     Item.search()
 
     Item.listenDelete()
-   Item.like()
+  
+
+   darkmode()
 
 })
 
@@ -34,7 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
+// darkmode
+function darkmode(){
+  const checkbox = document.querySelector("#checkbox")
+  checkbox.addEventListener("change", ()=>{
+    document.body.classList.toggle("dark")
+  })
+ }
+ 
 
 

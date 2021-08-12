@@ -109,6 +109,9 @@ serachBar */
 }
 
 
-.like{
-  background-color: aqua;
+/* darkmode */
+ 
+body.dark{
+  background-color: grey;
 }
+ 

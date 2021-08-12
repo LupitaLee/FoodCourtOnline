@@ -32,24 +32,6 @@ class Item {
    }
 
 
-static like(){
-    
-    
-    
-    imageContainer.addEventListener("click",(e)=>{
-        const likeBtn = e.target
-        console.log(e.target)
-        if (e.target.dataset.action === "likes"){
-
-           
-            likeBtn.innerHTML += "liked"
-        }
-})
-}
-
-
-
-
 
 
 // form
