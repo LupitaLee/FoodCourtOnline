@@ -27,42 +27,28 @@ class Item {
                 <h3>${this.title}</h3> 
                 <h4> $${this.price}</h4>
                 <button class="delete" id=${this.shop_id} data-id=${this.id} data-action="delete">Delete</button> 
-
+                <button class="like" id="likeButton" data-action="likes">like</button>
         </div>`)
    }
-//    
 
 
-
-// searchBar 
-
-   static search(){
-    searchBar.addEventListener('keyup', (e) => {
-
-        const searchString = e.target.value.toLowerCase()   
-        const filteredItems = Item.all.filter((item) => { 
-     
-        
-             return item.title.toLowerCase().includes(searchString) 
-         
-        })   
-        filteredItems.forEach( filterItem => {
-         
-            if (imageContainer){
-                imageContainer.innerHTML = "" 
-            }
-            filterItem.addToDom()
-            
-        })
-        
-            if (searchString == ""){
-                
-                imageContainer.innerHTML = "" 
-            }
-
-        }) 
+static like(){
     
-    }
+    
+    
+    imageContainer.addEventListener("click",(e)=>{
+        const likeBtn = e.target
+        console.log(e.target)
+        if (e.target.dataset.action === "likes"){
+
+           
+            likeBtn.innerHTML += "liked"
+        }
+})
+}
+
+
+
 
 
 
@@ -107,17 +93,18 @@ class Item {
            
            
               Item.postItems(titleInput, imageInput, select)
+              
            
         })
 
      
- // take this values and sent to db to create a new roll
+ // take this values and sent to db to create a new item
             
 }
 
   static postItems(titleInput, imageInput, select){
     const shopId = select.options[select.selectedIndex].attributes[0].value
-    console.log(shopId)
+   
    
     fetch(`http://localhost:3000/api/shops/${shopId}/items`, {
       
@@ -143,6 +130,8 @@ class Item {
 
               const newItem = new Item(data)
               newItem.addToDom()
+
+            
               titleInput.value = ""
               imageInput.value = "" })
             
@@ -152,6 +141,9 @@ class Item {
     }
 
 
+
+
+// delete items
 
 
     static listenDelete(){
@@ -193,7 +185,35 @@ class Item {
       
     }
     
+// searchBar 
 
+static search(){
+    searchBar.addEventListener('keyup', (e) => {
+
+        const searchString = e.target.value.toLowerCase()   
+        const filteredItems = Item.all.filter((item) => { 
+     
+        
+             return item.title.toLowerCase().includes(searchString) 
+         
+        })   
+        filteredItems.forEach( filterItem => {
+         
+            if (imageContainer){
+                imageContainer.innerHTML = "" 
+            }
+            filterItem.addToDom()
+            
+        })
+        
+            if (searchString == ""){
+                
+                imageContainer.innerHTML = "" 
+            }
+
+        }) 
+    
+    }
 
  
 

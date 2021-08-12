@@ -29,7 +29,7 @@ class Shop {
 
 
     addToDom(){
-        const titleName = document.querySelector("#name")
+        // const titleName = document.querySelector("#name")
         titleName.innerHTML += this.render()
        
     }

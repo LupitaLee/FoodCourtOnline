@@ -39,6 +39,7 @@ $ open index.html
 ## Sample Demo Video
 To look at a sample demo video click the link :
 https://drive.google.com/file/d/1PoTN5LJWFad_m6X0MyhnC12-FYfy_z8y/view?usp=sharing
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/LupitaLee/sushiyo_front_end. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/LupitaLee/sushiyo_front_end/blob/master/CODE_OF_CONDUCT.md).

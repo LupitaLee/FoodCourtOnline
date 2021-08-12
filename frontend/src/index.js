@@ -26,12 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Item.search()
 
     Item.listenDelete()
-   
-
-
-  
-   
-    
+   Item.like()
 
 })
 
