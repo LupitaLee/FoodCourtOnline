@@ -13,13 +13,6 @@ class Item {
    
 
 
-
-
-
-   
-
-
-
     addToDom(){
         imageContainer.innerHTML += this.render() 
     
