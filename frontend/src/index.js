@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//   Item.getItems()
+
   Item.addCreateform()
     Item.eventItems()
 
@@ -27,10 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Item.listenDelete()
    
-    
+
+
+  
+   
     
 
 })
+
 
 
 

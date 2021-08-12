@@ -78,9 +78,12 @@ class Shop {
 
 
     renderItems(){
-        this.items.forEach(i => console.log(i.addToDom()))
+        this.items.forEach(i => i.addToDom())
         
     }
+
+
+
 
 
 }
