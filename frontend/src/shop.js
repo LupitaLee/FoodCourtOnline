@@ -59,6 +59,7 @@ class Shop {
     
         
         const shopAction = e.target.dataset.action
+        console.log(shopAction)
         
         const shopId = e.target.dataset.id
             
