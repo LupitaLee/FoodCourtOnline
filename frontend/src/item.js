@@ -23,7 +23,7 @@ class Item {
         return (`
         <div class="inner-container">
         
-                <img src= " ${this.image} " />
+                <img src= " ${this.image} " class="image"/>
                 <h3>${this.title}</h3> 
                 <h4> $${this.price}</h4>
                 <button class="delete" id=${this.shop_id} data-id=${this.id} data-action="delete">Delete</button> 
